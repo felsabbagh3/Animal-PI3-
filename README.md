@@ -1,17 +1,20 @@
-
 # Auto Feeder for Homeless Animals with Raspberry Pi
 
-This project was part of ECE4180 Final Project at Georgia Institute of Technology. We deployed an object detection model on a Raspberry Pi with a camera to detect animals on the streets and feed them. Our autofeeder will despence food specific to the animal it sees.
+This project was part of ECE4180 Final Project at Georgia Institute of Technology. We deployed an object detection model on a Raspberry Pi with a camera to detect animals on the streets and feed them. Our auto feeder will dispense food specific to the animal it sees.
 
 
 ## Motivation
 
-There are around 70 million stray animals in the U.S. Nearly 2.7 million dogs and cats homless dogs and cats are killed every year because of no shelter and food. Our project tries to alleviate that by providing food to these homeless animals.  Our autofeeder will despence food specific to the animal it sees. 
+There are around 70 million stray animals in the U.S. Nearly 2.7 million dogs and cats homeless dogs and cats are killed every year because of no shelter and food. Our project tries to alleviate that by providing food to these homeless animals.  Our auto feeder will dispense food specific to the animal it sees.
+
+## Demo
+
+We have uploaded a Youtube Video with the demo. The link could be found [here](https://www.youtube.com/watch?v=V2AaI5D5zBY)
 
 
 ## Getting Started
 
-These instructions are all what's needed to get the project up and running.
+These instructions are all that's needed to get the project up and running.
 
 ### Hardware
 
@@ -52,7 +55,7 @@ $ workon cv
 $ pip3 install opencv-contrib-python
 ```
 
-### Other Software Dependancies
+### Other Software Dependencies
 
 ```
 pip3 install imutils
@@ -61,13 +64,13 @@ pip3 install "picamera[array]"
 
 ### Raspberry Pi Camera
 
-To get the Raspberry Pi camera to work, it first needs to be enabled. In preferences->Raspberry Pi Configuration->Interfaces make sure that Camera is Enabled.
+To get the Raspberry Pi camera to work, it first needs to be enabled. In Preferences->Raspberry Pi Configuration->Interfaces make sure that Camera is Enabled.
 
 
 
-### High Level Schematic
+### High-Level Schematic
 
-![High Level Project Schematic](diagrams/high_level_schematic.png)
+![High-Level Project Schematic](diagrams/high_level_schematic.png)
 
 
 ## Using the Application
@@ -79,7 +82,7 @@ We are currently using MobileNet SSD model for our object detection. This model 
 
 ### Running our Application
 
-To run this, we have provide a run.sh
+To run this, we have provided a run.sh
 
 ```
 $ ./run.sh
@@ -87,28 +90,7 @@ $ ./run.sh
 
 
 
+## Team Members
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* Fares Elsabbagh
+* Yifan Shen
