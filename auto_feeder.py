@@ -54,6 +54,7 @@ def classify_frame(net, inputQueue, outputQueue):
         if not inputQueue.empty():
             # grab the frame from the input queue, resize it, and
             # construct a blob from it
+            start = time.time()
             frame = inputQueue.get()
             frame = cv2.resize(frame, (300, 300))
             blob = cv2.dnn.blobFromImage(frame, 0.007843,
@@ -63,7 +64,7 @@ def classify_frame(net, inputQueue, outputQueue):
             # detector and obtain the detections
             net.setInput(blob)
             detections = net.forward()
-
+            print("Detection made in: {}".format(time.time() - start))
             # write the detections to the output queue
             outputQueue.put(detections)
 
@@ -113,6 +114,10 @@ fps = FPS().start()
 
 to_do = 1
 
+thirty_minutes = 60 * 30
+
+hold = {"cat": -1, "dog": -1}
+
 # loop over the frames from the video stream
 while True:
     #time.sleep(0.5)
@@ -153,10 +158,20 @@ while True:
                         print(CLASSES[idx])
                         
                         if CLASSES[idx] == "cat":
-                            detected_cat()
+                            if hold["cat"] == -1:
+                                detected_cat()
+                                hold["cat"] = time.time()
+                            elif (time.time() - hold["cat"]) > thirty_minutes:
+                                detected_cat()
+                                hold["cat"] = time.time()
                             
                         if CLASSES[idx] == "dog":
-                            detected_dog()
+                            if hold["dog"] == -1:
+                                detected_dog()
+                                hold["dog"] = time.time()
+                            elif (time.time() - hold["dog"]) > thirty_minutes:
+                                detected_dog()
+                                hold["dog"] = time.time()
                             
                         
                         dims = np.array([fW, fH, fW, fH])
